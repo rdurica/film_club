@@ -19,7 +19,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Application definition
 INSTALLED_APPS = [
-    "sslserver",
+    # "sslserver",
     "app.core.apps.CoreConfig",
     "django.contrib.admin",
     "django.contrib.auth",
