@@ -9,6 +9,7 @@ django-debug-toolbar = "*"
 mysqlclient = "*"
 pillow = "*"
 social-auth-app-django = "*"
+gunicorn = "*"
 
 [dev-packages]
 autopep8 = "*"
