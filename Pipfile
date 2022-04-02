@@ -8,6 +8,7 @@ django = {extras = ["argon2"], version = "*"}
 django-debug-toolbar = "*"
 mysqlclient = "*"
 pillow = "*"
+social-auth-app-django = "*"
 
 [dev-packages]
 autopep8 = "*"

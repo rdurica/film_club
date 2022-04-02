@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "social_django",
     "debug_toolbar",
 ]
 
@@ -48,6 +49,8 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
@@ -88,3 +91,17 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 PASSWORD_HASHERS = ["django.contrib.auth.hashers.Argon2PasswordHasher"]
+
+AUTHENTICATION_BACKENDS = (
+    "social_core.backends.google.GoogleOAuth2",
+    "django.contrib.auth.backends.ModelBackend",
+)
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_URL = "logout"
+LOGOUT_REDIRECT_URL = "login"
+SOCIAL_AUTH_URL_NAMESPACE = "social"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "#"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "#"
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {"prompt": "select_account"}
