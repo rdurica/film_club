@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "film_library",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rdurica/example.git"
+    "url": "git+https://github.com/rdurica/film_library.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rdurica/example/issues"
+    "url": "https://github.com/rdurica/film_library/issues"
   },
-  "homepage": "https://github.com/rdurica/example#readme",
+  "homepage": "https://github.com/rdurica/film_library#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.3.0",
