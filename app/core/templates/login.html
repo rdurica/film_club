@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Login</h1>
-<a href="{% url "social:begin" "google-oauth2" %}">Google+</a>
-</body>
-</html>
+{% extends "core.html" %}
+{% load static %}
+{% block content %}
+    <h1>Login</h1>
+    <a href="{% url "social:begin" "google-oauth2" %}">Google+</a>
+{% endblock %}

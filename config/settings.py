@@ -7,10 +7,12 @@ SECRET_KEY = "js1ja3u!nlya0_6%^87^ojsp(xb-s^-jg8$a%f0-vk+aq1i!+"
 DEBUG = True
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 ALLOWED_HOSTS = []
 INTERNAL_IPS = ["127.0.0.1"]
@@ -19,7 +21,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Application definition
 INSTALLED_APPS = [
-    # "sslserver",
+    "sslserver",
     "app.core.apps.CoreConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -62,8 +64,12 @@ TEMPLATES = [
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "database.db",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "film_library",
+        "USER": "root",
+        "PASSWORD": "password",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
     }
 }
 
@@ -102,6 +108,6 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_URL = "logout"
 LOGOUT_REDIRECT_URL = "login"
 SOCIAL_AUTH_URL_NAMESPACE = "social"
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "#"
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "#"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {"prompt": "select_account"}
