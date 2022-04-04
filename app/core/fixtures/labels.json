@@ -1,0 +1,128 @@
+[
+  {
+    "model": "core.label",
+    "pk": 1,
+    "fields": {
+      "name": "Action"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 2,
+    "fields": {
+      "name": "Adventure"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 3,
+    "fields": {
+      "name": "Anime"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 4,
+    "fields": {
+      "name": "Comedy"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 5,
+    "fields": {
+      "name": "Crime"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 6,
+    "fields": {
+      "name": "Documentary"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 7,
+    "fields": {
+      "name": "Drama"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 8,
+    "fields": {
+      "name": "Family"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 9,
+    "fields": {
+      "name": "Fantasy"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 10,
+    "fields": {
+      "name": "History"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 11,
+    "fields": {
+      "name": "Horror"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 12,
+    "fields": {
+      "name": "Music"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 13,
+    "fields": {
+      "name": "Musical"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 14,
+    "fields": {
+      "name": "Mystery"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 15,
+    "fields": {
+      "name": "Romance"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 16,
+    "fields": {
+      "name": "Sci-fi"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 17,
+    "fields": {
+      "name": "Thriller"
+    }
+  },
+  {
+    "model": "core.label",
+    "pk": 18,
+    "fields": {
+      "name": "Western"
+    }
+  }
+]

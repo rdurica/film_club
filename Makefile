@@ -4,6 +4,7 @@ init:
 	npm install --include=dev
 	npx webpack
 	pipenv run python ./manage.py migrate
+	pipenv run python ./manage.py loaddata app/core/fixtures/labels.json
 	pipenv run python ./manage.py createsuperuser
 
 pre_commit:
