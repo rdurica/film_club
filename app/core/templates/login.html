@@ -1,18 +1,27 @@
-{% extends "core.html" %}
-{% load static %}
-{% block content %}
-    <div class="cover-container d-flex w-75 h-50 p-3 mx-auto flex-column" style="margin-top: 25vh;">
-        <main class="px-3">
-            <h1>Film library</h1>
-            <p class="lead">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis,
-                suscipit id erat. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p class="lead">
-                <a href="{% url "social:begin" "google-oauth2" %}"
-                   class="google btn"><i class="fab fa-google fa-fw"></i> Login with Google+</a>
-            </p>
-        </main>
-    </div>
-{% endblock %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="{% static 'core/js/main.js' %}"></script>
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+<div class="cover-container d-flex w-75 h-50 p-3 mx-auto flex-column" style="margin-top: 25vh;">
+    <main class="px-3">
+        <h1>Film library</h1>
+        <p class="lead">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis,
+            suscipit id erat. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p class="lead">
+            <a href="{% url "social:begin" "google-oauth2" %}"
+               class="google btn"><i class="fab fa-google fa-fw"></i> Login with Google+</a>
+        </p>
+    </main>
+</div>
+</body>
+</html>
