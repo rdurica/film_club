@@ -3,16 +3,25 @@ from typing import Union
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.template import loader
+
+from app.core.forms.add_movie import AddMovieForm
 
 
 @login_required
 def index_view(request) -> HttpResponse:
     """Index page"""
-    template = loader.get_template("index.html")
+    if request.method == "POST":
+        form = AddMovieForm(request.POST, request.FILES)
 
-    return HttpResponse(template.render(None, request))
+        if form.is_valid():
+            form.save()
+            redirect("index")
+    else:
+        form = AddMovieForm()
+
+    return render(request, "index.html", {"form": form})
 
 
 def login_view(request) -> Union[HttpResponse, HttpResponseRedirect]:

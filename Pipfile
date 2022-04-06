@@ -10,6 +10,7 @@ mysqlclient = "*"
 pillow = "*"
 social-auth-app-django = "*"
 gunicorn = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -6,10 +6,11 @@ from .label import Label
 
 
 class Movie(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     img = models.ImageField(upload_to="images")
     labels = models.ManyToManyField(Label)
     year = models.IntegerField(default=date.today().year)
+    reference_url = models.URLField(max_length=250)
     is_approved = models.BooleanField(default=False)
 
     def movie_labels(self) -> str:
