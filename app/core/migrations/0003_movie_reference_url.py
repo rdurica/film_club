@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0002_label_movie'),
+        ("core", "0002_label_movie"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='movie',
-            name='reference_url',
-            field=models.URLField(default='https://google.com', max_length=250),
+            model_name="movie",
+            name="reference_url",
+            field=models.URLField(default="https://google.com", max_length=250),
             preserve_default=False,
         ),
     ]

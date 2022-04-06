@@ -5,7 +5,7 @@
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Film library</a>
+                <a class="navbar-brand" href="{% url 'index' %}">My movies</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -13,34 +13,26 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="#">All movies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a class="nav-link" href="#">Pending</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <a class="text-success nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fas fa-plus"></i> Suggest movie
+                    </a>
+                    {% if user.is_superuser %}
+                        <a href="/admin" class="text-info nav-link"> <i class="fas fa-wrench"></i>
+                            Administration</a>
+                    {% endif %}
+                    <a href="{% url 'logout' %}" class="text-danger nav-link"> <i class="fas fa-sign-out-alt"></i>
+                        Logout</a>
                 </div>
             </div>
         </nav>
     </header>
-    <h1>Dashboard</h1>
-    <a href="{% url "logout" %}">
-        <i class="fas fa-sign-out-alt"></i><br>logout
-    </a>
-    <br>
-    <br>
-    <br>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Suggest movie
-    </button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
