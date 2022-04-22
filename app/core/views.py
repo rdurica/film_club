@@ -16,7 +16,9 @@ def index_view(request) -> HttpResponse:
         form = AddMovieForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
+            movie = form.save(commit=False)
+            movie.author = request.user
+            movie.save()
             redirect("index")
     else:
         form = AddMovieForm()
