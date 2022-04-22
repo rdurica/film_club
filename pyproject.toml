@@ -2,8 +2,34 @@
 line-length = 119
 target-version = ['py310']
 
-
 [tool.isort]
 profile = "black"
 multi_line_output = 3
 py_version = 310
+
+[tool.poetry]
+name = "film_club"
+version = "0.1.0"
+description = ""
+authors = ["Robert Durica <r.durica@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.4"
+mysqlclient = "^2.1.0"
+Pillow = "^9.1.0"
+social-auth-app-django = "^5.0.0"
+django-crispy-forms = "^1.14.0"
+argon2-cffi = "^21.3.0"
+
+[tool.poetry.dev-dependencies]
+django-sslserver = "^0.22"
+django-debug-toolbar = "^3.2.4"
+black = "^22.3.0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

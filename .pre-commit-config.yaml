@@ -2,7 +2,7 @@ exclude: '^$'
 fail_fast: false
 repos:
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 22.3.0
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/isort
@@ -17,7 +17,7 @@ repos:
     hooks:
       - id: tests
         name: tests
-        entry: pipenv run python ./manage.py test
+        entry: python ./manage.py test
         always_run: true
         pass_filenames: false
         language: system

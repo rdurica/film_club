@@ -1,15 +1,15 @@
 #!/bin/bash
 init:
-	pipenv install --dev
+	poetry install
 	npm install --include=dev
 	npx webpack
-	pipenv run python ./manage.py migrate
-	pipenv run python ./manage.py loaddata app/core/fixtures/labels.json
-	pipenv run python ./manage.py createsuperuser
+	poetry run python ./manage.py migrate
+	poetry run python ./manage.py loaddata app/core/fixtures/labels.json
+	poetry run python ./manage.py createsuperuser
 
 pre_commit:
-	pipenv run pre-commit run --all-files
+	poetry run pre-commit run --all-files
 
 make_migrate:
-	pipenv run python ./manage.py makemigrations
-	pipenv run python ./manage.py migrate
+	poetry run python ./manage.py makemigrations
+	poetry run python ./manage.py migrate
