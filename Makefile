@@ -13,3 +13,6 @@ pre_commit:
 make_migrate:
 	poetry run python ./manage.py makemigrations
 	poetry run python ./manage.py migrate
+
+webpack:
+	npx webpack --watch
