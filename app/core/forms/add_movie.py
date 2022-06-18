@@ -6,4 +6,4 @@ from app.core.models import Movie
 class AddMovieForm(ModelForm):
     class Meta:
         model = Movie
-        fields = ["name", "reference_url"]
+        fields = ["url", "source"]
