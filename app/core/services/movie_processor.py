@@ -23,6 +23,10 @@ class MovieProcessor(ABC):
     def get_movie_year(self) -> int:
         ...
 
+    @abstractmethod
+    def get_movie_genres(self) -> list[str]:
+        ...
+
 
 class IMDBProcessor(MovieProcessor):
     def get_movie_name(self) -> str:
@@ -32,3 +36,11 @@ class IMDBProcessor(MovieProcessor):
         return int(
             self.movie.find("ul", attrs={"data-testid": "hero-title-block__metadata"}).findChildren("a")[0].text
         )
+
+    def get_movie_genres(self) -> list[str]:
+        data = self.movie.find("div", attrs={"data-testid": "genres"}).findChildren("li")
+        genres_list = list()
+        for item in data:
+            genres_list.append(item.text)
+
+        return genres_list

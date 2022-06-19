@@ -16,6 +16,7 @@ def process_movie(request):
     imdb.get_content("https://www.imdb.com/title/tt10872600/?ref_=tt_sims_tt_t_1")
     print(imdb.get_movie_name())
     print(imdb.get_movie_year())
+    print(imdb.get_movie_genres())
 
     return HttpResponse("Processed")
 
