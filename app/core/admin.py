@@ -13,7 +13,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ("url", "source", "created_at", "is_approved", "is_processed")
+    list_display = ("url", "name", "source", "created_at", "is_approved", "is_processed")
     list_display_links = ("url",)
-    search_fields = ("url",)
+    search_fields = ("url", "name")
     list_per_page = 50
