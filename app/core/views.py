@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.template import loader
 from django.db.utils import IntegrityError
 from app.core.forms.add_movie import AddMovieForm
-from app.core.services.movie_processor import CSFDProcessor, IMDBProcessor
+from app.core.services.movie_processor import IMDBProcessor
 
 
 def process_movie(request):
@@ -15,6 +15,7 @@ def process_movie(request):
     imdb = IMDBProcessor()
     imdb.get_content("https://www.imdb.com/title/tt10872600/?ref_=tt_sims_tt_t_1")
     print(imdb.get_movie_name())
+    print(imdb.get_movie_year())
 
     return HttpResponse("Processed")
 

@@ -19,12 +19,16 @@ class MovieProcessor(ABC):
     def get_movie_name(self) -> str:
         ...
 
-
-class CSFDProcessor(MovieProcessor):
-    def get_movie_name(self) -> str:
-        return self.movie.find("div", attrs={"class": "film-header-name"}).text
+    @abstractmethod
+    def get_movie_year(self) -> int:
+        ...
 
 
 class IMDBProcessor(MovieProcessor):
     def get_movie_name(self) -> str:
         return self.movie.find("h1", attrs={"data-testid": "hero-title-block__title"}).text
+
+    def get_movie_year(self) -> int:
+        return int(
+            self.movie.find("ul", attrs={"data-testid": "hero-title-block__metadata"}).findChildren("a")[0].text
+        )
