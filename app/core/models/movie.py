@@ -11,7 +11,7 @@ class Movie(models.Model):
 
     name = models.CharField(max_length=50)
     url = models.URLField(max_length=200, unique=True)
-    source = models.CharField(max_length=10, choices=MOVIE_SOURCE, default=SOURCE_CSFD)
+    source = models.CharField(max_length=10, choices=MOVIE_SOURCE, default=SOURCE_IMDB)
     labels = models.ManyToManyField(Label)
     year = models.IntegerField(null=True, blank=True, default=None)
     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)

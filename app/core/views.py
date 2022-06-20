@@ -7,17 +7,29 @@ from django.shortcuts import redirect, render
 from django.template import loader
 from django.db.utils import IntegrityError
 from app.core.forms.add_movie import AddMovieForm
-from app.core.services.movie_processor import IMDBProcessor
+from app.core.models import Movie
+from app.core.models.label import Label
+from app.core.services.movie_processor import IMDBProcessor, MovieProcessor
 
 
 def process_movie(request):
     """debug processors ToDo: Delete me"""
-    imdb = IMDBProcessor()
-    imdb.get_content("https://www.imdb.com/title/tt10872600/?ref_=tt_sims_tt_t_1")
-    print(imdb.get_movie_name())
-    print(imdb.get_movie_year())
-    print(imdb.get_movie_genres())
+    movies_queue = Movie.objects.all()
+    processor: MovieProcessor
+    for movie in movies_queue:
+        match movie.source:
+            case movie.SOURCE_IMDB:
+                processor = IMDBProcessor()
+            case _:
+                processor = IMDBProcessor()
 
+        processor.get_content(movie.url)
+        movie.name = processor.get_movie_name()
+        movie.year = processor.get_movie_year()
+        labels = Label.objects.filter(name__in=processor.get_movie_genres()).all()
+        [movie.labels.add(label) for label in labels]
+        movie.is_processed = True
+        movie.save()
     return HttpResponse("Processed")
 
 
