@@ -15,3 +15,6 @@ make_migrate:
 
 webpack:
 	npx webpack --watch
+
+process_movies:
+	poetry run python ./manage.py process_movies
